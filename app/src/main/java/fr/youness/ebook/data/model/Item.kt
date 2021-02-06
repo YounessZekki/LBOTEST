@@ -1,9 +1,9 @@
-package fr.youness.ebook.model
+package fr.youness.ebook.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Embedded
-import org.jetbrains.annotations.NotNull
+import java.io.Serializable
 
 @Entity(tableName = "book_table")
 data class Item(
@@ -16,4 +16,4 @@ data class Item(
     @Embedded val saleInfo: SaleInfo?,
 //    @Embedded val accessInfo: AccessInfo?,
     @Embedded val searchInfo: SearchInfo?
-)
+) : Serializable

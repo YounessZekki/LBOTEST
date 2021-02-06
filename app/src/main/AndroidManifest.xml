@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fr.youness.ebook">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,11 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.ListBookActivity"
-            android:label="@string/title_activity_list_book"
+            android:name=".ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.activity.DetailBookActivity"
+            android:label="@string/title_activity_detail_book"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.activity.ListBookActivity"
+            android:label="@string/title_activity_list_book"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

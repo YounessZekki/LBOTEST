@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import fr.youness.ebook.model.Item
+import fr.youness.ebook.data.model.Item
 
 @Dao
 interface BookDao {

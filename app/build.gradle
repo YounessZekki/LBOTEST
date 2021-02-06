@@ -47,6 +47,10 @@ dependencies {
 //    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0-rc02'
     implementation 'androidx.navigation:navigation-ui-ktx:2.0.0-rc02'
+    // -- Coroutines
+    def coroutines_version = "1.2.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 //    retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
@@ -54,6 +58,10 @@ dependencies {
 //    room
     implementation "androidx.room:room-runtime:2.2.5"
     implementation group: 'androidx.lifecycle', name: 'lifecycle-viewmodel-ktx', version: '2.3.0-beta01'
+//    Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.0'
+//    Swiperefresh
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

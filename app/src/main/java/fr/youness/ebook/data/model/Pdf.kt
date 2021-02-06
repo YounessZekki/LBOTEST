@@ -1,4 +1,4 @@
-package fr.youness.ebook.model
+package fr.youness.ebook.data.model
 
 data class Pdf(
     val isAvailable: Boolean?, // true

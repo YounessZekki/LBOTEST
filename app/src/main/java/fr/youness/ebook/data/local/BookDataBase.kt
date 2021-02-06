@@ -4,11 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import fr.youness.ebook.model.Item
+import androidx.room.TypeConverters
+import fr.youness.ebook.data.model.Item
 import fr.youness.ebook.utils.DB_NAME
+import fr.youness.ebook.utils.StringListConverter
 
-@Database(entities = [Item::class], version = 1)
+@Database(entities = [Item::class], version = 1, exportSchema = false)
+@TypeConverters(StringListConverter::class)
 abstract class BookDataBase : RoomDatabase() {
+    abstract fun bookDao(): BookDao
 
     companion object {
         @Volatile

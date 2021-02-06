@@ -1,0 +1,21 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <!--    margins && paddings -->
+    <dimen name="margin_0_dp">0dp</dimen>
+    <dimen name="margin_2_dp">2dp</dimen>
+    <dimen name="margin_5_dp">5dp</dimen>
+    <dimen name="margin_8_dp">8dp</dimen>
+    <dimen name="margin_10_dp">10dp</dimen>
+    <dimen name="margin_15_dp">15dp</dimen>
+    <dimen name="margin_20_dp">20dp</dimen>
+    <dimen name="margin_200_dp">200dp</dimen>
+
+    <!--    Text sizes  -->
+    <dimen name="size_12_sp">12sp</dimen>
+    <dimen name="size_15_sp">15sp</dimen>
+    <dimen name="size_14_sp">14sp</dimen>
+    <dimen name="size_16_sp">16sp</dimen>
+    <dimen name="size_18_sp">18sp</dimen>
+    <dimen name="size_20_sp">20sp</dimen>
+    <dimen name="size_22_sp">22sp</dimen>
+</resources>

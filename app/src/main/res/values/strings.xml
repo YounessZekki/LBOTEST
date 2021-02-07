@@ -14,4 +14,5 @@
     <string name="title_activity_detail_book">Détail du livre</string>
     <string name="title_activity_my_biblio">Ma bibliothèque</string>
     <string name="save_book_in_my_bibliotheque">Le livre a été bien sauvegardé dans ma bibliothèque</string>
+    <string name="already_saved_in_my_bibliotheque">Le livre a été déjà sauvegardé dans ma bibliothèque</string>
 </resources>

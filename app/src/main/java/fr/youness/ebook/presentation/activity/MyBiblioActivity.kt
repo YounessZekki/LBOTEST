@@ -56,6 +56,6 @@ class MyBiblioActivity : AppCompatActivity() {
         }
     }
     private fun listItemClicked(book: Item) {
-        Toast.makeText(this, "From biblio ${book.id}", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.already_saved_in_my_bibliotheque), Toast.LENGTH_LONG).show()
     }
 }

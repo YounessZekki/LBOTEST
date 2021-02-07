@@ -9,47 +9,29 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.youness.ebook.R
 import fr.youness.ebook.data.model.Item
+import fr.youness.ebook.data.repository.BookRepository
 import fr.youness.ebook.presentation.adapter.BookAdapter
 import fr.youness.ebook.presentation.viewmodel.BookViewModel
-import fr.youness.ebook.utils.AUTHOR_BOOK_REQUEST
-import fr.youness.ebook.utils.TITLE_BOOK_REQUEST
-import fr.youness.ebook.utils.Utils
 import kotlinx.android.synthetic.main.activity_list_book.*
 import kotlinx.android.synthetic.main.content_list_book.*
 
-class ListBookActivity : AppCompatActivity() {
+class MyBiblioActivity : AppCompatActivity() {
 
     lateinit var bookViewModel: BookViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_book)
+        setContentView(R.layout.activity_my_biblio)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        Activer le swipe refresh par défaut
-        swipe_refresh_list_book.isRefreshing = true
-//        Récuérer le tite & l'auteur saisis par l'utilisateur
-        val book_title = intent.getStringExtra(TITLE_BOOK_REQUEST)
-        val book_author = intent.getStringExtra(AUTHOR_BOOK_REQUEST)
-//        Instancier le viewMdel
-        bookViewModel = BookViewModel(applicationContext)
-        // Vérifier la connexion Internet
-        if (Utils.isNetworkConnected(this)) {
-            bookViewModel.getBooksFromApi(book_title, book_author).observe(this,
-                Observer {
-                    setUpBookRecyclerView(it.items)
-                })
-        } else {
-            Toast.makeText(
+        swipe_refresh_list_book.isEnabled = false
+        bookViewModel = BookViewModel(this)
+        bookViewModel.getBooksFromDB()
+            .observe(
                 this,
-                getString(R.string.no_internet_error),
-                Toast.LENGTH_LONG
-            ).show()
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        bookViewModel.cancelJobs()
+                Observer {
+                    setUpBookRecyclerView(it)
+                }
+            )
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
@@ -69,19 +51,11 @@ class ListBookActivity : AppCompatActivity() {
                 setHasFixedSize(true)
                 swipe_refresh_list_book.isRefreshing = false
                 layoutManager = LinearLayoutManager(context)
-                adapter = books.let {
-                    BookAdapter(
-                        it,
-                        { selectedItem: Item -> listItemClicked(selectedItem) })
-                }
+                adapter = books.let { BookAdapter(it, {selectedItem:Item->listItemClicked(selectedItem)}) }
             }
         }
     }
-
     private fun listItemClicked(book: Item) {
-        bookViewModel.insertBookinDB(book)
-        Toast.makeText(this, getString(R.string.save_book_in_my_bibliotheque), Toast.LENGTH_LONG)
-            .show()
+        Toast.makeText(this, "From biblio ${book.id}", Toast.LENGTH_LONG).show()
     }
-
 }

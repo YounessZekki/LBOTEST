@@ -8,6 +8,8 @@
     <dimen name="margin_10_dp">10dp</dimen>
     <dimen name="margin_15_dp">15dp</dimen>
     <dimen name="margin_20_dp">20dp</dimen>
+    <dimen name="margin_50_dp">50dp</dimen>
+    <dimen name="margin_100_dp">100dp</dimen>
     <dimen name="margin_200_dp">200dp</dimen>
 
     <!--    Text sizes  -->

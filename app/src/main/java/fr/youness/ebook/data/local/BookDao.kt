@@ -11,8 +11,8 @@ import fr.youness.ebook.data.model.Item
 interface BookDao {
 
     @Query("SELECT * FROM book_table")
-    fun getAllBooks(): LiveData<List<Item>>
+    fun getAllBooksFromDB(): LiveData<List<Item>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertBook(book: Item)
+    suspend fun insertBook(book: Item)
 }
